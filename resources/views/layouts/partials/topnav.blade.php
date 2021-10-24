@@ -2,20 +2,20 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Search form -->
-                {{-- <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-                    <div class="form-group mb-0">
-                        <div class="input-group input-group-alternative input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            </div>
-                            <input class="form-control" placeholder="Search" type="text">
+            {{-- <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                <div class="form-group mb-0">
+                    <div class="input-group input-group-alternative input-group-merge">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
                         </div>
+                        <input class="form-control" placeholder="Search" type="text">
                     </div>
-                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
-                        aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </form> --}}
+                </div>
+                <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
+                    aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </form> --}}
             <!-- Navbar links -->
             <ul class="navbar-nav align-items-center  ml-md-auto ">
                 {{-- <li class="nav-item d-xl-none">
@@ -158,8 +158,7 @@
                         aria-expanded="false">
                         <i class="ni ni-ungroup"></i>
                     </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
                         <div class="row shortcuts px-4">
                             <a href="#!" class="col-4 shortcut-item">
                                 <span class="shortcut-media avatar rounded-circle bg-gradient-red">
@@ -235,10 +234,14 @@
                             <span>Support</span>
                         </a> --}}
                         <div class="dropdown-divider"></div>
-                        <a href="#!" class="dropdown-item">
-                            <i class="ni ni-user-run"></i>
-                            <span>Logout</span>
-                        </a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="{{route('logout')}}" class="dropdown-item" onclick="event.preventDefault();
+                        this.closest('form').submit();">
+                                <i class="ni ni-user-run"></i>
+                                <span>Logout</span>
+                            </a>
+                        </form>
                     </div>
                 </li>
             </ul>
