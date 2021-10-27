@@ -47,7 +47,7 @@ class OrderEdit extends Component
     protected $rules = [
         'firstname' => 'required',
         'lastname' => 'required',
-        'mobile' => 'required',
+        'mobile' => 'required|regex:((^(\+)(\d){12}$)|(^\d{11}$))',
         'address' => 'required',
         'type' => 'required',
         'instructions' => 'nullable|min:3|max:1000',

@@ -25,7 +25,7 @@ class OrderCreate extends Component
     protected $rules = [
         'firstname' => 'required',
         'lastname' => 'required',
-        'mobile' => 'required',
+        'mobile' => 'required|regex:^(09|\+639)\d{9}$',
         'address' => 'required',
         'type' => 'required',
         'instructions' => 'nullable|min:3|max:1000',

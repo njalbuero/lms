@@ -25,4 +25,21 @@ class Order extends Model
     {
         return $this->belongsTo(Type::class);
     }
+
+    public function scopeSearch($query, $val){
+        return $query
+        ->where('firstname', 'like', '%' . $val . '%')
+        ->Orwhere('lastname', 'like', '%' . $val . '%')
+        ->Orwhere('id', 'like', '%' . $val . '%');
+    }
+
+    public function scopeStatusFilter($query, $val){
+        return $query
+        ->where('status_id', $val);
+    }
+
+    public function scopeTypeFilter($query, $val){
+        return $query
+        ->where('type_id', $val);
+    }
 }

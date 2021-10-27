@@ -16,8 +16,44 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Orders</h3>
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Orders</h3>
+                        </div>
+                        <div class="col-4 text-right">
+                            <div>
+                                <button wire:click="resetFilter" type="button" class="btn btn-sm btn-outline-primary">Reset Filters</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="row mb-4 px-4">
+                    <div class="col form-inline">
+                        <div class="mr-2">
+                            <select wire:model="typeFilter" class="form-control">
+                                <option value="">Show All</option>
+                                <option value=0>Walk-in Only</option>
+                                <option value=1>Online Only</option>
+                            </select>
+                        </div>
+                        <div class="mr-2">
+                            <select wire:model="statusFilter" class="form-control">
+                                <option value="">Filter by Status</option>
+                                @foreach ($statuses as $status)
+                                <option value={{$status->id}}>{{$status->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                                placeholder="Search..">
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Light table -->
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
@@ -82,6 +118,12 @@
                             @endforelse
                         </tbody>
                     </table>
+                    <div class="card-footer py-4">
+                        <p>
+                            {{$orders->links('pagination::bootstrap-4')}}
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
