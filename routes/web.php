@@ -27,6 +27,9 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
 
 Route::group(['middleware' => ['auth', 'role:administrator']], function() { 
     Route::get('/admin/dashboard', App\Http\Livewire\Pages\Admin\Dashboard::class)->name('admin.dashboard');
+    Route::get('/admin/manage-orders', App\Http\Livewire\Pages\Admin\ManageOrders::class)->name('admin.manage-orders');
+    Route::get('/admin/manage-orders/create', App\Http\Livewire\Pages\Admin\OrderCreate::class)->name('admin.manage-orders.create');
+    Route::get('/admin/manage-orders/edit/{order}', App\Http\Livewire\Pages\Admin\OrderEdit::class)->name('admin.manage-orders.edit');
 });
 
 

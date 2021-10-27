@@ -12,9 +12,17 @@
                 <!-- Nav items -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="examples/dashboard.html">
+                        <a class="nav-link" href="{{route('admin.dashboard')}}">
                             <i class="ni ni-tv-2 text-primary"></i>
                             <span class="nav-link-text">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.manage-orders')}}">
+                            <i class="ni ni-basket text-orange"></i>
+                            <span class="nav-link-text">Manage Orders</span>
                         </a>
                     </li>
                 </ul>

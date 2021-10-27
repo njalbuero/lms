@@ -75,7 +75,7 @@
             <div class="container-fluid mt--6">
                 {{ $slot }}
                 <!-- Footer -->
-                @include('layouts.partials.footer')
+                {{-- @include('layouts.partials.footer') --}}
             </div>
         </div>
     </div>
@@ -94,6 +94,8 @@
     <script src="{{asset('vendor/chart.js/dist/Chart.extension.js')}}"></script>
     <!-- Argon JS -->
     <script src="{{asset('js/argon.js')}}"></script>
+    {{-- Alpine JS --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
     @stack('scripts')
 </body>
 
