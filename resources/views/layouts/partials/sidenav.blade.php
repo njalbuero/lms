@@ -21,11 +21,37 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.manage-orders')}}">
-                            <i class="ni ni-basket text-orange"></i>
+                            <i class="ni ni-bag-17 text-orange"></i>
                             <span class="nav-link-text">Manage Orders</span>
                         </a>
                     </li>
                 </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.washing')}}">
+                            <i class="ni ni-basket text-info"></i>
+                            <span class="nav-link-text">Washing</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.pickup-and-delivery')}}">
+                            <i class="ni ni-delivery-fast text-pink"></i>
+                            <span class="nav-link-text">Pickup & Delivery</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.reports')}}">
+                            <i class="ni ni-single-copy-04 text-default"></i>
+                            <span class="nav-link-text">Reports</span>
+                        </a>
+                    </li>
+                </ul>
+               
             </div>
         </div>
     </div>

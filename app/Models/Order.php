@@ -42,4 +42,39 @@ class Order extends Model
         return $query
         ->where('type_id', $val);
     }
+
+    public function scopeWashWalkin($query){
+        return $query
+        ->where('status_id', 1)
+        ->where('isOnline', 0);
+    }
+
+    public function scopeWashOnline($query){
+        return $query
+        ->where('status_id', 3)
+        ->where('isOnline', 1);
+    }
+
+    public function scopeHasOrder($query, $val){
+        return $query
+        ->where('user_id', $val)
+        ->where('status_id', '<', 5);
+    }
+
+    public function scopeOnline($query){
+        return $query
+        ->where('isOnline', 1);
+    }
+
+    public function scopePickup($query){
+        return $query
+        ->where('status_id', 1)
+        ->orWhere('status_id', 2);
+    }
+
+    public function scopeDelivery($query){
+        return $query
+        ->where('status_id', 5)
+        ->orWhere('status_id', 6);
+    }
 }

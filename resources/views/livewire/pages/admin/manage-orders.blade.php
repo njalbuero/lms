@@ -60,8 +60,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="name">Order ID</th>
+                                <th scope="col" class="sort" data-sort="budget">Date</th>
                                 <th scope="col" class="sort" data-sort="budget">Name</th>
-                                <th scope="col" class="sort" data-sort="status">Type</th>
+                
                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                 <th scope="col" class="sort" data-sort="status">Completion</th>
                                 <th scope="col">{{--Badges--}}</th>
@@ -72,8 +73,9 @@
                             @forelse ($orders as $order)
                             <tr>
                                 <td>{{$order->id}}</td>
+                                <td>{{$order->created_at}}</td>
                                 <td>{{$order->firstname . " " . $order->lastname}}</td>
-                                <td>{{$order->type->name}}</td>
+                               
                                 <td>
                                     <span class="badge badge-dot mr-4">
                                         <i class="bg-{{status($order->status->id)}}"></i>

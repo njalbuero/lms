@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(){
         if(Auth::user()->hasRole('user')){
-            dd("user");
+            return redirect()->route('user.home');
         }elseif(Auth::user()->hasRole('administrator')){
             return redirect()->route('admin.dashboard');
         }

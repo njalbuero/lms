@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Pages\Admin;
+namespace App\Http\Livewire\Pages\Guest;
 
 use App\Models\Type;
 use App\Models\Order;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
-class OrderCreate extends Component
+class Book extends Component
 {
     public $types;
 
@@ -18,9 +19,11 @@ class OrderCreate extends Component
     public $instructions;
     public $weight; 
     public $price;
-    public $isPaid;
     
     public $rate;
+
+
+    public $order;
 
     protected $rules = [
         'firstname' => 'required',
@@ -30,13 +33,14 @@ class OrderCreate extends Component
         'type' => 'required',
         'instructions' => 'nullable|min:3|max:1000',
         'weight' => 'required',
-        'isPaid' => 'required',
         'price' => 'required',
     ];
 
     public function mount(){
         $this->types = Type::all();
-        $this->isPaid = false;
+        $this->order = Order::query()
+        ->hasOrder(Auth::user()->id)
+        ->first();
     }
 
     public function setPrice(){
@@ -55,14 +59,18 @@ class OrderCreate extends Component
     public function submit(){
         $order = $this->validate();
         $order['type_id'] = $this->type;
+        $order['isOnline'] = 1;
+        $order['isPaid'] = 0;
+        $order['user_id'] = Auth::user()->id;
         Order::create($order);
 
         session()->flash('message', 'Order successfully created.');
-        return redirect()->to('/admin/manage-orders');
+        return redirect()->to('book');
     }
 
     public function render()
     {
-        return view('livewire.pages.admin.order-create');
+        return view('livewire.pages.guest.book')
+        ->layout('layouts.user');
     }
 }
