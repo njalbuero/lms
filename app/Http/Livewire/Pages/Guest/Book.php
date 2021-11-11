@@ -11,8 +11,7 @@ class Book extends Component
 {
     public $types;
 
-    public $firstname;
-    public $lastname;
+    public $name;
     public $mobile;
     public $address;
     public $type;
@@ -26,8 +25,7 @@ class Book extends Component
     public $order;
 
     protected $rules = [
-        'firstname' => 'required',
-        'lastname' => 'required',
+        'name' => 'required',
         'mobile' => 'required',
         'address' => 'required',
         'type' => 'required',
@@ -37,6 +35,7 @@ class Book extends Component
     ];
 
     public function mount(){
+        $this->name = Auth::user()->name;
         $this->types = Type::all();
         $this->order = Order::query()
         ->hasOrder(Auth::user()->id)

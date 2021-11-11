@@ -13,8 +13,7 @@ class OrderEdit extends Component
     public $statuses;
     public $types;
 
-    public $firstname;
-    public $lastname;
+    public $name;
     public $mobile;
     public $address;
     public $type;
@@ -32,8 +31,7 @@ class OrderEdit extends Component
         $this->statuses = Status::all();
         $this->types = Type::all();
 
-        $this->firstname = $this->order->firstname;
-        $this->lastname = $this->order->lastname;
+        $this->name = $this->order->name;
         $this->mobile = $this->order->mobile;
         $this->address = $this->order->address;
         $this->type = $this->order->type_id;
@@ -45,8 +43,7 @@ class OrderEdit extends Component
     }
 
     protected $rules = [
-        'firstname' => 'required',
-        'lastname' => 'required',
+        'name' => 'required',
         'mobile' => 'required',
         'address' => 'required',
         'type' => 'required',

@@ -74,7 +74,7 @@
                             <tr>
                                 <td>{{$order->id}}</td>
                                 <td>{{$order->created_at}}</td>
-                                <td>{{$order->firstname . " " . $order->lastname}}</td>
+                                <td>{{$order->name}}</td>
                                
                                 <td>
                                     <span class="badge badge-dot mr-4">

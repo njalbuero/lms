@@ -25,8 +25,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('price', 10, 2)->nullable();
             $table->longText('instructions')->nullable();
 
-            $table->string('firstname', 100)->nullable();
-            $table->string('lastname', 100)->nullable();
+            $table->string('name', 100)->nullable();
             $table->string('address')->nullable();
             $table->string('mobile')->nullable();
 

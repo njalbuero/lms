@@ -51,7 +51,7 @@
                             @forelse ($orders_pickup as $order)
                             <tr>
                                 <td>{{$order->id}}</td>
-                                <td>{{$order->firstname . " " . $order->lastname}}</td>
+                                <td>{{$order->name}}</td>
                                 <td>
                                     <span class="badge badge-dot mr-4">
                                         <i class="bg-{{status($order->status->id)}}"></i>
@@ -126,7 +126,7 @@
                             @forelse ($orders_delivery as $order)
                             <tr>
                                 <td>{{$order->id}}</td>
-                                <td>{{$order->firstname . " " . $order->lastname}}</td>
+                                <td>{{$order->name}}</td>
                                 <td>
                                     <span class="badge badge-dot mr-4">
                                         <i class="bg-{{status($order->status->id)}}"></i>

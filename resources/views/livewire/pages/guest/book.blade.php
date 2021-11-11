@@ -3,17 +3,14 @@
         <div class="container">
             <div class="header-body mb-7">
                 <div class="row justify-content-center">
-
+                    @if (session()->has('message'))
+                    <div class="col-12 alert alert-success" role="alert" x-data="{show:true}" x-show="show" x-init = "setTimeout(() => show = false, 2000)" x-transition>
+                        <strong>Success!</strong> {{ session('message') }}
+                    </div>
+                    @endif
                     <div class="col-xl-8 d-flex justify-content-center">
-                        @if (session()->has('message'))
-                        <div class="alert alert-success" role="alert" x-data="{show:true}"
-                            x-init="setTimeout(() => show = false, 1500)" x-show="show" x-transition>
-                            <strong>Success!</strong> {{ session('message') }}
-                        </div>
-                        @endif
-
                         @if (isset($order))
-                        <div class="card" style="width: 25rem;">
+                        <div class="card" style="width: 30rem;">
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-6 pt-3">
@@ -21,11 +18,12 @@
                                     </div>
 
                                     <div class="col-6 text-right">
-                                        <span class="badge badge-{{status($order->status->id)}}">{{$order->status->name}}</span>
+                                        <span
+                                            class="badge badge-{{status($order->status->id)}}">{{$order->status->name}}</span>
                                     </div>
                                 </div>
 
-                                <p class="card-text"><strong>Name:</strong> {{$order->firstname . " " . $order->lastname}}</p>
+                                <p class="card-text"><strong>Name:</strong> {{$order->name}} </p>
                                 <p class="card-text"><strong>Address:</strong> {{$order->address}}</p>
                                 <p class="card-text"><strong>Contact:</strong> {{$order->mobile}}</p>
                                 <hr>
@@ -48,22 +46,12 @@
                                 <h6 class="heading-small text-muted mb-4">Customer information</h6>
                                 <div class="pl-lg-4">
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label class="form-control-label">First Name</label>
-                                                <input required wire:model="firstname" type="text" class="form-control"
-                                                    placeholder="First name">
-                                                @error('firstname')
-                                                <p class="text-red">{{ $message }}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Last Name</label>
-                                                <input wire:model="lastname" type="text" class="form-control"
-                                                    placeholder="Last name">
-                                                @error('lastname')
+                                                <label class="form-control-label">Name</label>
+                                                <input required wire:model="name" type="text" class="form-control"
+                                                    placeholder="Name">
+                                                @error('name')
                                                 <p class="text-red">{{ $message }}</p>
                                                 @enderror
                                             </div>

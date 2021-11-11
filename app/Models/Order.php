@@ -28,8 +28,7 @@ class Order extends Model
 
     public function scopeSearch($query, $val){
         return $query
-        ->where('firstname', 'like', '%' . $val . '%')
-        ->Orwhere('lastname', 'like', '%' . $val . '%')
+        ->where('name', 'like', '%' . $val . '%')
         ->Orwhere('id', 'like', '%' . $val . '%');
     }
 

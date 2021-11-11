@@ -26,7 +26,6 @@ Route::get('/about', App\Http\Livewire\Pages\Guest\About::class)->name('about');
 Route::get('/contact', App\Http\Livewire\Pages\Guest\Contact::class)->name('contact');
 
 Route::group(['middleware' => ['auth', 'role:user']], function() { 
-    Route::get('/about', App\Http\Livewire\Pages\Guest\About::class)->name('about');
     Route::get('/book', App\Http\Livewire\Pages\Guest\Book::class)->name('book');
 });
 

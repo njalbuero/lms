@@ -10,8 +10,7 @@ class OrderCreate extends Component
 {
     public $types;
 
-    public $firstname;
-    public $lastname;
+    public $name;
     public $mobile;
     public $address;
     public $type;
@@ -23,8 +22,7 @@ class OrderCreate extends Component
     public $rate;
 
     protected $rules = [
-        'firstname' => 'required',
-        'lastname' => 'required',
+        'name' => 'required',
         'mobile' => 'required',
         'address' => 'required',
         'type' => 'required',

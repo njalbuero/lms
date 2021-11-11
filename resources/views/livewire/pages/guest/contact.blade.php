@@ -29,7 +29,7 @@
                                 <div class="form-group"><label> Last name </label>
                                     <div class="input-group input-group-alternative">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="ni ni-tag"></i></span></div><input aria-label="Last Name..."
+                                                    class="ni ni-circle-08"></i></span></div><input aria-label="Last Name..."
                                             placeholder="Last Name..." type="text" class="form-control">
                                     </div>
                                 </div>
